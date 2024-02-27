@@ -1,3 +1,6 @@
+using Assignment.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace Assignment
 {
     public class Program
@@ -8,7 +11,9 @@ namespace Assignment
 
             // Add services to the container.
             builder.Services.AddRazorPages();
-
+            builder.Services.AddDbContext<TimeTableContext>(
+    opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("MyString"))
+    );
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
