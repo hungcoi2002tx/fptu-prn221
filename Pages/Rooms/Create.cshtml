@@ -1,0 +1,38 @@
+﻿@page
+@model Assignment.Pages.Rooms.CreateModel
+
+<h4>Room</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Room.Id" class="control-label"></label>
+                <input asp-for="Room.Id" class="form-control" />
+                <span asp-validation-for="Room.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Room.Code" class="control-label"></label>
+                <input asp-for="Room.Code" class="form-control" />
+                <span asp-validation-for="Room.Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Room.CreateTime" class="control-label"></label>
+                <input asp-for="Room.CreateTime" class="form-control" />
+                <span asp-validation-for="Room.CreateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

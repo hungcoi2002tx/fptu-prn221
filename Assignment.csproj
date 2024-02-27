@@ -21,8 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Subjects\" />
-    <Folder Include="Pages\Rooms\" />
+    <Folder Include="Pages\Classes\" />
     <Folder Include="Pages\Teachers\" />
   </ItemGroup>
 
