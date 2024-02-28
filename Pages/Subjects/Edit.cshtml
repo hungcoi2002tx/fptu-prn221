@@ -1,4 +1,5 @@
 ﻿@page
+@using Assignment.Models;
 @model Assignment.Pages.Subjects.EditModel
 
 <h4>Subject</h4>
@@ -6,22 +7,22 @@
 <div class="row">
     <div class="col-md-4">
         <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Subject.Id" />
+            <div asp-validation-summary="None" class="text-danger"></div>
+            <input type="hidden" asp-for="SubjectEditModel.Id" />
             <div class="form-group">
-                <label asp-for="Subject.Name" class="control-label"></label>
-                <input asp-for="Subject.Name" class="form-control" />
-                <span asp-validation-for="Subject.Name" class="text-danger"></span>
+                <label asp-for="SubjectEditModel.Name" class="control-label"></label>
+                <input asp-for="SubjectEditModel.Name" class="form-control" />
+                <span asp-validation-for="SubjectEditModel.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Subject.Code" class="control-label"></label>
-                <input asp-for="Subject.Code" class="form-control" />
-                <span asp-validation-for="Subject.Code" class="text-danger"></span>
+                <label asp-for="SubjectEditModel.Code" class="control-label"></label>
+                <input asp-for="SubjectEditModel.Code" class="form-control" readonly="true"/>
+                <span asp-validation-for="SubjectEditModel.Code" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Subject.CreateTime" class="control-label"></label>
-                <input asp-for="Subject.CreateTime" class="form-control" />
-                <span asp-validation-for="Subject.CreateTime" class="text-danger"></span>
+                <label asp-for="SubjectEditModel.CreateTime" class="control-label"></label>
+                <input asp-for="SubjectEditModel.CreateTime" class="form-control" />
+                <span asp-validation-for="SubjectEditModel.CreateTime" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

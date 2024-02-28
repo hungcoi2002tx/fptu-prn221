@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Assignment.Models;
+using System.Net.WebSockets;
 
 namespace Assignment.Pages.Subjects
 {
@@ -24,20 +25,16 @@ namespace Assignment.Pages.Subjects
         }
 
         [BindProperty]
-        public Subject Subject { get; set; } = new Subject()
-        {
-            Id = Guid.NewGuid().ToString("N"),
-            CreateTime = DateTime.Now,
-        };
+        public Subject Subject { get; set; }
         
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Subjects == null || Subject == null)
-            {
-                return Page();
-            }
+            if (!ModelState.IsValid || _context.Subjects == null || Subject == null)
+                {
+                    return Page();
+                }
+            var subject = 
             Subject.CreateTime = DateTime.Now;
             _context.Subjects.Add(Subject);
             await _context.SaveChangesAsync();

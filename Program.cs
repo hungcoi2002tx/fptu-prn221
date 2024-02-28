@@ -14,6 +14,7 @@ namespace Assignment
             builder.Services.AddDbContext<TimeTableContext>(
     opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("MyString"))
     );
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

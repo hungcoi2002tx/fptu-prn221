@@ -248,3 +248,5 @@ D:\FPT Material\Chapter 7\PRN221\Project\Assignment\bin\Debug\net6.0\runtimes\un
 D:\FPT Material\Chapter 7\PRN221\Project\Assignment\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 D:\FPT Material\Chapter 7\PRN221\Project\Assignment\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\FPT Material\Chapter 7\PRN221\Project\Assignment\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\FPT Material\Chapter 7\PRN221\Project\Assignment\bin\Debug\net6.0\AutoMapper.dll
+D:\FPT Material\Chapter 7\PRN221\Project\Assignment\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

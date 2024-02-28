@@ -8,19 +8,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Subject[0].Name)
+                @Html.DisplayNameFor(model => model.ViewModels[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Subject[0].Code)
+                @Html.DisplayNameFor(model => model.ViewModels[0].Code)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Subject[0].CreateTime)
+                @Html.DisplayNameFor(model => model.ViewModels[0].CreateTime)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Subject) {
+@foreach (var item in Model.ViewModels) {
         <tr>
             <td>
                 @item.Name
@@ -29,7 +29,7 @@
                 @item.Code
             </td>
             <td>
-                @item.CreateTime.Value.ToString("dd/MM/yyyy")
+                @item.CreateTime.ToString("dd/MM/yyyy")
             </td>
             <td>
                 <button class="edit-btn"><a asp-page="./Edit" asp-route-id="@item.Id" style="">Edit</a></button>
