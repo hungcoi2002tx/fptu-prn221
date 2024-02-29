@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.Room.CreateTime)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Room.CreateTime)
+            @Model.Room.CreateTime.Value.ToString("dd/MM/yyyy")
         </dd>
     </dl>
 </div>

@@ -22,7 +22,7 @@
             @Html.DisplayNameFor(model => model.Class.CreateTime)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Class.CreateTime)
+            @Model.Class.CreateTime.Value.ToString("dd/MM/yyyy")
         </dd>
     </dl>
 </div>
