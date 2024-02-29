@@ -16,6 +16,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\FPT Material\Chapter 7\PRN221\Project\Assignment
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/Classes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xhc3Nlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/Classes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xhc3Nlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/Classes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xhc3Nlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/Classes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xhc3Nlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/Classes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xhc3Nlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -70,6 +90,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/Subjects/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3ViamVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/Teachers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhY2hlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/Teachers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhY2hlcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/Teachers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhY2hlcnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/Teachers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhY2hlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/Teachers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhY2hlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/_ViewImports.cshtml]

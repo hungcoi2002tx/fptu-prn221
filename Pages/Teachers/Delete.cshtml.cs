@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Assignment.Models;
 
-namespace Assignment.Pages.Rooms
+namespace Assignment.Pages.Teachers
 {
     public class DeleteModel : PageModel
     {
@@ -18,41 +18,41 @@ namespace Assignment.Pages.Rooms
             _context = context;
         }
 
-      [BindProperty]
-      public Room Room { get; set; } = default!;
+        [BindProperty]
+      public Teacher Teacher { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null || _context.Rooms == null)
+            if (id == null || _context.Teachers == null)
             {
                 return NotFound();
             }
 
-            var room = await _context.Rooms.FirstOrDefaultAsync(m => m.Id == id);
+            var teacher = await _context.Teachers.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (room == null)
+            if (teacher == null)
             {
                 return NotFound();
             }
             else 
             {
-                Room = room;
+                Teacher = teacher;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(string id)
         {
-            if (id == null || _context.Rooms == null)
+            if (id == null || _context.Teachers == null)
             {
                 return NotFound();
             }
-            var room = await _context.Rooms.FindAsync(id);
+            var teacher = await _context.Teachers.FindAsync(id);
 
-            if (room != null)
+            if (teacher != null)
             {
-                Room = room;
-                _context.Rooms.Remove(Room);
+                Teacher = teacher;
+                _context.Teachers.Remove(Teacher);
                 await _context.SaveChangesAsync();
             }
 

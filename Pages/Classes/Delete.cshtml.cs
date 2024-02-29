@@ -1,58 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Assignment.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Assignment.Models;
 
-namespace Assignment.Pages.Rooms
+namespace Assignment.Pages.Classes
 {
     public class DeleteModel : PageModel
     {
         private readonly Assignment.Models.TimeTableContext _context;
-
         public DeleteModel(Assignment.Models.TimeTableContext context)
         {
             _context = context;
         }
 
-      [BindProperty]
-      public Room Room { get; set; } = default!;
+        [BindProperty]
+        public Class Class { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null || _context.Rooms == null)
+            if (id == null || _context.Classes == null)
             {
                 return NotFound();
             }
 
-            var room = await _context.Rooms.FirstOrDefaultAsync(m => m.Id == id);
+            var classModel = await _context.Classes.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (room == null)
+            if (classModel == null)
             {
                 return NotFound();
             }
-            else 
+            else
             {
-                Room = room;
+                Class = classModel;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(string id)
         {
-            if (id == null || _context.Rooms == null)
+            if (id == null || _context.Classes == null)
             {
                 return NotFound();
             }
-            var room = await _context.Rooms.FindAsync(id);
+            var classModel = await _context.Classes.FindAsync(id);
 
-            if (room != null)
+            if (classModel != null)
             {
-                Room = room;
-                _context.Rooms.Remove(Room);
+                Class = classModel;
+                _context.Classes.Remove(Class);
                 await _context.SaveChangesAsync();
             }
 

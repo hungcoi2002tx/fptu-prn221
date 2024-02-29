@@ -10,6 +10,8 @@ namespace Assignment.Profiles
        public CustomProfile() {
             CreateMap<Subject, SubjectEditModel>().ReverseMap();
             CreateMap<Subject, SubjectViewModel>().ReverseMap();
-       }
+            CreateMap<Class, ClassEditModel>().ReverseMap();
+            CreateMap<Class, ClassViewModel>().ReverseMap();
+        }
     }
 }

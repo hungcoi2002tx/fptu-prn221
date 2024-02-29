@@ -1,0 +1,32 @@
+﻿@page
+@model Assignment.Pages.Classes.DeleteModel
+@{
+}
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Class</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Class.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Class.Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Class.CreateTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Class.CreateTime.Value.ToString("dd/MM/yyyy")
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Class.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <button class="back-list-btn">
+            <a asp-page="./Index">Back to List</a>
+        </button>
+
+    </form>
+</div>
