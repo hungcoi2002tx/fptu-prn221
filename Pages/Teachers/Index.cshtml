@@ -29,7 +29,7 @@
                 @Html.DisplayFor(modelItem => item.Code)
             </td>
             <td>
-                    @Model.Teacher.CreateTime.Value.ToString("dd/MM/yyyy")
+               @item?.CreateTime.Value.ToString("dd/MM/yyyy")
             </td>
             <td>
                 <button class="edit-btn">

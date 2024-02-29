@@ -24,17 +24,21 @@ namespace Assignment.Pages.Teachers
         }
 
         [BindProperty]
-        public Teacher Teacher { get; set; } = default!;
-        
+        public Teacher Teacher { get; set; }
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Teachers == null || Teacher == null)
+            if (!ModelState.IsValid || _context.Teachers == null || Teacher == null)
             {
                 return Page();
             }
-
+            if (_context.Teachers.FirstOrDefault(x => x.Code == Teacher.Code) != null)
+            {
+                ModelState.AddModelError("", "Code trùng");
+                return Page();
+            }
+            Teacher.CreateTime = DateTime.Now;
             _context.Teachers.Add(Teacher);
             await _context.SaveChangesAsync();
 
