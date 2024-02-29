@@ -26,6 +26,11 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Subject?.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <button class="edit-btn">
+        <a asp-page="./Edit" asp-route-id="@Model.Subject?.Id">Edit</a>
+    </button>
+    <button class="back-list-btn">
+        <a asp-page="./Index">Back to List</a>
+    </button>
+    
 </div>

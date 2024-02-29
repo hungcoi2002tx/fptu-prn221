@@ -22,6 +22,10 @@ a {
     color: white;
 }
 
+button{
+    border:none;
+}
+
 .edit-btn {
     background-color: #007bff;
 }
@@ -36,4 +40,8 @@ a {
 
 .add-btn {
     background-color: #28a745;
+}
+
+.back-list-btn{
+    background-color: chocolate;
 }

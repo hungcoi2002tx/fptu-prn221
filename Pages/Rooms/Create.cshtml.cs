@@ -26,15 +26,18 @@ namespace Assignment.Pages.Rooms
         [BindProperty]
         public Room Room { get; set; } = default!;
         
-
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
           if (!ModelState.IsValid || _context.Rooms == null || Room == null)
             {
                 return Page();
             }
-
+          if(_context.Rooms.FirstOrDefault(x => x.Code == Room.Code) != null)
+            {
+                ModelState.AddModelError("", "Code trùng");
+                return Page();
+            }
+            Room.CreateTime = DateTime.Now;
             _context.Rooms.Add(Room);
             await _context.SaveChangesAsync();
 

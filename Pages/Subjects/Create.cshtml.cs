@@ -34,7 +34,11 @@ namespace Assignment.Pages.Subjects
                 {
                     return Page();
                 }
-            var subject = 
+            if (_context.Subjects.FirstOrDefault(x => x.Code == Subject.Code) != null)
+            {
+                ModelState.AddModelError("", "Code trùng");
+                return Page();
+            }
             Subject.CreateTime = DateTime.Now;
             _context.Subjects.Add(Subject);
             await _context.SaveChangesAsync();
