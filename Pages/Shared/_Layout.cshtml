@@ -31,6 +31,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Teachers/Index">Teacher</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/TimeTables/Index">TimeTable</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -55,3 +58,10 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
+<script>
+    function displayNotification() {
+        alert('Bạn đã vào được hàm OnPost!');
+    }
+</script>

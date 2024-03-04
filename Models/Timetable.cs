@@ -5,7 +5,7 @@ namespace Assignment.Models
 {
     public partial class Timetable
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string? ClassCode { get; set; }
         public string? TeacherCode { get; set; }
         public string? SubjectCode { get; set; }
@@ -18,5 +18,10 @@ namespace Assignment.Models
         public virtual Slot? SlotCodeNavigation { get; set; }
         public virtual Subject? SubjectCodeNavigation { get; set; }
         public virtual Teacher? TeacherCodeNavigation { get; set; }
+
+        public override string? ToString()
+        {
+            return $"Timetable: {ClassCode} - {SubjectCode} - {RoomCode} - {TeacherCode} - {SlotCode}";
+        }
     }
 }

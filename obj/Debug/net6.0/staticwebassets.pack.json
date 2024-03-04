@@ -245,6 +245,14 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "D:\\FPT Material\\Chapter 7\\PRN221\\Project\\Assignment\\wwwroot\\uploads\\65. Giay uy quyen QT 08 UQQT-TNCN.docx",
+      "PackagePath": "staticwebassets\\uploads\\65. Giay uy quyen QT 08 UQQT-TNCN.docx"
+    },
+    {
+      "Id": "D:\\FPT Material\\Chapter 7\\PRN221\\Project\\Assignment\\wwwroot\\uploads\\datatest.csv",
+      "PackagePath": "staticwebassets\\uploads\\datatest.csv"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Assignment.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

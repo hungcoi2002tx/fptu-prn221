@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Folder Include="Models\Share\" />
+    <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
 </Project>

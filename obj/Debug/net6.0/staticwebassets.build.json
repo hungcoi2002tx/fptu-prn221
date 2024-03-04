@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/vAp+4nlAxOhnZnhvJOcW72R99bAES8evlqUhtQd3is=",
+  "Hash": "6N3yOAy8mt8QVSXasxBqTb9sQFMB4y/vbhN5Z/3ukRQ=",
   "Source": "Assignment",
   "BasePath": "_content/Assignment",
   "Mode": "Default",
@@ -1069,6 +1069,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\FPT Material\\Chapter 7\\PRN221\\Project\\Assignment\\wwwroot\\uploads\\65. Giay uy quyen QT 08 UQQT-TNCN.docx",
+      "SourceId": "Assignment",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT Material\\Chapter 7\\PRN221\\Project\\Assignment\\wwwroot\\",
+      "BasePath": "_content/Assignment",
+      "RelativePath": "uploads/65. Giay uy quyen QT 08 UQQT-TNCN.docx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\65. Giay uy quyen QT 08 UQQT-TNCN.docx"
+    },
+    {
+      "Identity": "D:\\FPT Material\\Chapter 7\\PRN221\\Project\\Assignment\\wwwroot\\uploads\\datatest.csv",
+      "SourceId": "Assignment",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT Material\\Chapter 7\\PRN221\\Project\\Assignment\\wwwroot\\",
+      "BasePath": "_content/Assignment",
+      "RelativePath": "uploads/datatest.csv",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\datatest.csv"
     }
   ]
 }

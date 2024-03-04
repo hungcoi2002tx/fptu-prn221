@@ -1,0 +1,26 @@
+﻿@page
+@model Assignment.Pages.TimeTable.IndexModel
+@{
+}
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="csvFile" />
+    <button class="add-btn" type="submit">Upload</button>
+</form>
+
+@if (ViewData["ErrorData"] != null){
+    <h2>List data error</h2>
+    var errorData = (List<string>)ViewData["ErrorData"];
+    foreach (var error in errorData)
+    {
+        <p style="color: red">@error</p>
+    }
+}
+@if (ViewData["SuccessData"] != null)
+{
+    <h2>List data input successfully</h2>
+    var timeTables = (List<Timetable>)ViewData["SuccessData"];
+    foreach (var tb in timeTables)
+    {
+        <p>@tb</p>
+    }
+}
