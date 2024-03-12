@@ -9,7 +9,9 @@ namespace Assignment.Pages
     public class ErrorModel : PageModel
     {
         public string? RequestId { get; set; }
-        public string? Details { get; set; }
+
+        [FromQuery]
+        public string? ErrorDetail { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
@@ -20,11 +22,11 @@ namespace Assignment.Pages
             _logger = logger;
         }
 
-        public void OnGet(string? error)
+        public void OnGet(string? ErrorDetail)
         {
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
 
-            Details = error;
+            this.ErrorDetail = ErrorDetail;
         }
     }
 }

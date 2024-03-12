@@ -2,6 +2,9 @@
 @model Assignment.Pages.TimeTable.IndexModel
 @{
 }
+<button class="back-list-btn">
+    <a asp-page="./Index" asp-page-handler="ViewByClass">Class</a>
+</button>
 <form method="post" enctype="multipart/form-data">
     <input type="file" name="csvFile" />
     <button class="add-btn" type="submit">Upload</button>

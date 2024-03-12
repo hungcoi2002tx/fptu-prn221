@@ -25,16 +25,20 @@ namespace Assignment.Pages.TimeTable
         public List<Timetable> TimeTables { get; set; }
 
 
-        public async Task<IActionResult> OnGetViewByClassAsync()
+
+        public Class ClassId { get; set; }
+
+
+        public async Task<IActionResult> OnGetViewByClassAsync(string? classId)
         {
             try
             {
-
+                ClassId = classId == null ? Classes.FirstOrDefault() : Classes.FirstOrDefault(x => x.Id == classId);
             }catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            return Page();
+            return RedirectToPage("/Error", new {ErrorDetail = "có lỗi xảy ra"});
         }
 
         public async Task<IActionResult> OnPostAsync(IFormFile csvFile)
