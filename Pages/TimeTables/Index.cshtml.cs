@@ -1,4 +1,5 @@
 ﻿using Assignment.Models;
+using Assignment.Ultils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -10,11 +11,13 @@ namespace Assignment.Pages.TimeTable
     {
         private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly Assignment.Models.TimeTableContext _context;
+        private readonly Logger _log;
 
-        public IndexModel(IWebHostEnvironment hostingEnvironment, Assignment.Models.TimeTableContext context)
+        public IndexModel(IWebHostEnvironment hostingEnvironment, Assignment.Models.TimeTableContext context, Logger log)
         {
             _hostingEnvironment = hostingEnvironment;
             _context = context;
+            _log = log;
         }
 
         public List<Class> Classes { get; set; }
@@ -102,7 +105,7 @@ namespace Assignment.Pages.TimeTable
                 }
             }
             catch(Exception ex) {
-                Console.WriteLine(ex.ToString());   
+                _log.LogError(ex.Message);
             }
             return Page();
         }

@@ -1,4 +1,5 @@
 using Assignment.Models;
+using Assignment.Ultils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.JSInterop;
 
@@ -12,7 +13,7 @@ namespace Assignment
 
             // Add services to the container.
             builder.Services.AddRazorPages();
-
+            builder.Services.AddSingleton<Logger>();
             builder.Services.AddDbContext<TimeTableContext>(
     opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("MyString"))
     );

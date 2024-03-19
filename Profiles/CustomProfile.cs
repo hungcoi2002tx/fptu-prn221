@@ -12,6 +12,7 @@ namespace Assignment.Profiles
             CreateMap<Subject, SubjectViewModel>().ReverseMap();
             CreateMap<Class, ClassEditModel>().ReverseMap();
             CreateMap<Class, ClassViewModel>().ReverseMap();
+            CreateMap<Timetable, TimeTableEditModel>().ReverseMap();    
         }
     }
 }
