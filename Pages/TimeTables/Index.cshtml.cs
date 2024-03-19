@@ -234,10 +234,10 @@ namespace Assignment.Pages.TimeTable
             (Boolean, String) result = (false, String.Empty);
             try
             {
-                var timetable = TimeTables.Where(x => x.ClassCode == timeTable.ClassCode)
+                var timetable = TimeTables.Where(x => x.RoomCode == timeTable.RoomCode)
                                             .Where(x => x.SlotCode == timeTable.SlotCode)
                                             .FirstOrDefault();
-                if(timetable != null)
+                if (timetable != null)
                 {
                     return (true, $" 1 Room have only 1 slot conflict with {timetable}");
                 }
@@ -248,6 +248,7 @@ namespace Assignment.Pages.TimeTable
             }
             return result;
         }
+
 
         //compare value with Db
         private (Boolean, String) CheckValidData(Timetable timeTable)

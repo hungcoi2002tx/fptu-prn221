@@ -14,6 +14,7 @@ namespace Assignment
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddSingleton<Logger>();
+            builder.Services.AddScoped<Validate>();
             builder.Services.AddDbContext<TimeTableContext>(
     opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("MyString"))
     );

@@ -5,7 +5,7 @@
 <h4>Create new schedule</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div>
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -13,20 +13,55 @@
                 <select asp-for="EditModel.TeacherCode">
                     @foreach (var item in Model.Teachers)
                     {
-                        <option value="@item.Code">@item.Name</option>
+                        <option value="@item.Code">@item.Code</option>
+                    }
+                </select>
+                <span asp-validation-for="EditModel.TeacherCode" class="text-danger"></span>
+            </div
+            <div class="form-group">
+                <label asp-for="EditModel.SubjectCode" class="control-label"></label>
+                <select asp-for="EditModel.SubjectCode">
+                    @foreach (var item in Model.Subjects)
+                    {
+                        <option value="@item.Code">@item.Code</option>
+                    }
+                </select>
+                <span asp-validation-for="EditModel.SubjectCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EditModel.ClassCode" class="control-label"></label>
+                <select asp-for="EditModel.ClassCode">
+                    @foreach (var item in Model.Classes)
+                    {
+                        <option value="@item.Code">@item.Code</option>
                     }
                 </select>
                 <span asp-validation-for="EditModel.TeacherCode" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
-                <label asp-for="Teacher.Code" class="control-label"></label>
-                <input asp-for="Teacher.Code" class="form-control" />
-                <span asp-validation-for="Teacher.Code" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="EditModel.RoomCode" class="control-label"></label>
+                <select asp-for="EditModel.RoomCode">
+                    @foreach (var item in Model.Rooms)
+                    {
+                        <option value="@item.Code">@item.Code</option>
+                    }
+                </select>
+                <span asp-validation-for="EditModel.RoomCode" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="EditModel.SlotCode" class="control-label"></label>
+                <select asp-for="EditModel.SlotCode">
+                    @foreach (var item in Model.Slots)
+                    {
+                        <option value="@item.Code">@item.Code</option>
+                    }
+                </select>
+                <span asp-validation-for="EditModel.SlotCode" class="text-danger"></span>
             </div>
-            <input asp-for="Teacher.Id" value=" " hidden="true" />*@
+            <div class="form-group">
+                 <input type="submit" value="Tạo" width="30px"/>
+            </div>
+
         </form>
     </div>
 </div>
