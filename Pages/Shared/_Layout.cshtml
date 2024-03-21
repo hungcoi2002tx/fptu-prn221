@@ -42,7 +42,7 @@
                               <a class="nav-link text-dark">Time Table</a>
                               <div class="dropdown-content">
                                 <a asp-area="" asp-page="/TimeTables/ViewByClass">View By Class</a>
-                                <a asp-area="" asp-page="/TimeTables/Create">Link 2</a>
+                                <a asp-area="" asp-page="/TimeTables/ViewBySlot">View By Slot</a>
                                 <a asp-area="" asp-page="/TimeTables/Create">Link 3</a>
                               </div>
                             </div>
@@ -77,4 +77,12 @@
     function displayNotification() {
         alert('Bạn đã vào được hàm OnPost!');
     }
+</script>
+<script>
+    function submitFormOnChange() {
+        document.getElementById('classSelect').addEventListener('change', function () {
+            document.getElementById('myForm').submit();
+        });
+    }
+    submitFormOnChange();
 </script>

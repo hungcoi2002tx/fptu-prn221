@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6N3yOAy8mt8QVSXasxBqTb9sQFMB4y/vbhN5Z/3ukRQ=",
+  "Hash": "dT/FK6DV6WRTBc929lowf7DuOyZEwx7ohcu/ViM0bbE=",
   "Source": "Assignment",
   "BasePath": "_content/Assignment",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\datatest.csv"
+    },
+    {
+      "Identity": "D:\\FPT Material\\Chapter 7\\PRN221\\Project\\Assignment\\wwwroot\\uploads\\services.xml",
+      "SourceId": "Assignment",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT Material\\Chapter 7\\PRN221\\Project\\Assignment\\wwwroot\\",
+      "BasePath": "_content/Assignment",
+      "RelativePath": "uploads/services.xml",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\services.xml"
     }
   ]
 }

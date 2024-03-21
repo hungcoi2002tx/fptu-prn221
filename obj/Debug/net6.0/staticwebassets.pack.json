@@ -253,6 +253,10 @@
       "PackagePath": "staticwebassets\\uploads\\datatest.csv"
     },
     {
+      "Id": "D:\\FPT Material\\Chapter 7\\PRN221\\Project\\Assignment\\wwwroot\\uploads\\services.xml",
+      "PackagePath": "staticwebassets\\uploads\\services.xml"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Assignment.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

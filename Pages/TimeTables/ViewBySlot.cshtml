@@ -1,0 +1,43 @@
+﻿@page
+@model Assignment.Pages.TimeTables.ViewBySlotModel
+@{
+    Timetable[,] myArray = (Timetable[,])ViewData["Data"];
+}
+<h1>View TimeTable By Slot</h1>
+<form id="myForm">
+    <div>
+        <label>Select days in week to view : </label>
+        <select asp-for="ItemSelected" id="classSelect">
+            @foreach (var item in Model.Weekdays)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+    </div>
+</form>
+<table>
+    <tr>
+        <th></th>
+        <th>Slot 1</th>
+        <th>Slot 2</th>
+        <th>Slot 3</th>
+        <th>Slot 4</th>
+    </tr>
+    @for (int i = 0; i < Model.NumberOfRoom; i++)
+    {
+        <tr>
+            <td>@Model.Rooms[i].Code</td>
+            @for (int j = 0; j < 4; j++)
+            {
+                @if (myArray[i, j] != null)
+                {
+                    <td>(@myArray[i,j].SubjectCode) - (@myArray[i,j].TeacherCode) - (@myArray[i,j].ClassCode)</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+            }
+        </tr>       
+    }
+</table>

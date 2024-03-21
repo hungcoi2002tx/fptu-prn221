@@ -2,7 +2,7 @@
 @model Assignment.Pages.TimeTables.ViewByClassModel
 @{
 }
-<h1>VIew TimeTable By Class</h1>
+<h1>View TimeTable By Class</h1>
 <form id="myForm">
     <div>
         <label>Select class to view : </label>
@@ -44,12 +44,3 @@
         </tr>        
     }
 </table>
-<script>
-    function submitFormOnChange() {
-        document.getElementById('classSelect').addEventListener('change', function () {
-            document.getElementById('myForm').submit();
-        });
-    }
-
-    submitFormOnChange();
-</script>

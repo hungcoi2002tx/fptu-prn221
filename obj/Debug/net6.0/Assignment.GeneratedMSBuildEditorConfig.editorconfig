@@ -128,6 +128,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGltZVRhYmxlc1xWaWV3QnlDbGFzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/TimeTables/ViewByRoom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGltZVRhYmxlc1xWaWV3QnlSb29tLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/TimeTables/ViewBySlot.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGltZVRhYmxlc1xWaWV3QnlTbG90LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
