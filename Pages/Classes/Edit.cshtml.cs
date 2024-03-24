@@ -19,7 +19,7 @@ namespace Assignment.Pages.Classes
         }
 
         [BindProperty]
-        public ClassEditModel ClassEditModel { get; set; }
+        public ClassEditModel EntityEditModel { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -34,7 +34,7 @@ namespace Assignment.Pages.Classes
             {
                 return NotFound();
             }
-            ClassEditModel = _mapper.Map<ClassEditModel>(classModel);
+            EntityEditModel = _mapper.Map<ClassEditModel>(classModel);
             return Page();
         }
 
@@ -44,7 +44,7 @@ namespace Assignment.Pages.Classes
             {
                 return Page();
             }
-            var classModel = _mapper.Map<Subject>(ClassEditModel);
+            var classModel = _mapper.Map<Class>(EntityEditModel);
 
             _context.Attach(classModel).State = EntityState.Modified;
 
@@ -54,7 +54,7 @@ namespace Assignment.Pages.Classes
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SubjectExists(ClassEditModel.Id))
+                if (!ClassCheckCode(EntityEditModel.Id))
                 {
                     return NotFound();
                 }
@@ -67,7 +67,7 @@ namespace Assignment.Pages.Classes
             return RedirectToPage("./Index");
         }
 
-        private bool SubjectExists(string id)
+        private bool ClassCheckCode(string id)
         {
             return (_context.Classes?.Any(e => e.Id == id)).GetValueOrDefault();
         }
