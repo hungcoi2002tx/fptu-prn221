@@ -70,9 +70,9 @@ namespace Assignment.Ultils
         {
             try
             {
-                Classes =await _tableContext.Classes.ToListAsync();
-                Teachers = await _tableContext.Teachers.ToListAsync();
-                Rooms = await _tableContext.Rooms.ToListAsync();
+                Classes =await _tableContext.Classes.Where(x => x.Status == true).ToListAsync();
+                Teachers = await _tableContext.Teachers.Where(x => x.Status == true).ToListAsync();
+                Rooms = await _tableContext.Rooms.Where(x => x.Status == true).ToListAsync();
                 Slots = await _tableContext.Slots.ToListAsync();
                 TimeTables = await _tableContext.Timetables.ToListAsync();
             }
@@ -91,7 +91,7 @@ namespace Assignment.Ultils
                                             .FirstOrDefault();
                 if (timetable != null)
                 {
-                    return (true, $" 1 Teacher have only 1 slot code {timeTable.SlotCode} conflict with {timetable}");
+                    return (true, $" 1 EditModel have only 1 slot code {timeTable.SlotCode} conflict with {timetable}");
                 }
             }
             catch (Exception ex)

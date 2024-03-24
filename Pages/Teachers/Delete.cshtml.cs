@@ -52,10 +52,10 @@ namespace Assignment.Pages.Teachers
             if (teacher != null)
             {
                 Teacher = teacher;
-                _context.Teachers.Remove(Teacher);
+                Teacher.Status = !Teacher.Status;
+                _context.Teachers.Update(Teacher);
                 await _context.SaveChangesAsync();
             }
-
             return RedirectToPage("./Index");
         }
     }

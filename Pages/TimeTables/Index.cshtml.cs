@@ -178,7 +178,7 @@ namespace Assignment.Pages.TimeTable
                                             .FirstOrDefault();
                 if (timetable != null)
                 {
-                    return (true, $" 1 Teacher have only 1 slot code {timeTable.SlotCode} conflict with {timetable}");
+                    return (true, $" 1 EditModel have only 1 slot code {timeTable.SlotCode} conflict with {timetable}");
                 }
             }
             catch (Exception ex)

@@ -6,16 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Assignment.Models;
+using AutoMapper;
+using Assignment.Models.EditModel;
 
 namespace Assignment.Pages.Teachers
 {
     public class CreateModel : PageModel
     {
         private readonly Assignment.Models.TimeTableContext _context;
+        private readonly IMapper _mapper;
 
-        public CreateModel(Assignment.Models.TimeTableContext context)
+        public CreateModel(Assignment.Models.TimeTableContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public IActionResult OnGet()
@@ -24,22 +28,23 @@ namespace Assignment.Pages.Teachers
         }
 
         [BindProperty]
-        public Teacher Teacher { get; set; }
+        public TeacherEditModel EditModel { get; set; }
 
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid || _context.Teachers == null || Teacher == null)
+            if (!ModelState.IsValid || _context.Teachers == null || EditModel == null)
             {
                 return Page();
             }
-            if (_context.Teachers.FirstOrDefault(x => x.Code == Teacher.Code) != null)
+            if (_context.Teachers.FirstOrDefault(x => x.Code == EditModel.Code) != null)
             {
                 ModelState.AddModelError("", "Code trùng");
                 return Page();
             }
-            Teacher.CreateTime = DateTime.Now;
-            _context.Teachers.Add(Teacher);
+            EditModel.CreateTime = DateTime.Now;
+            var teacherModel = _mapper.Map<Teacher>(EditModel);
+            _context.Teachers.Add(teacherModel);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

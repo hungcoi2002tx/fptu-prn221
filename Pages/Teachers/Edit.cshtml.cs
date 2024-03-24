@@ -7,20 +7,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Assignment.Models;
+using AutoMapper;
+using Assignment.Models.EditModel;
 
 namespace Assignment.Pages.Teachers
 {
     public class EditModel : PageModel
     {
         private readonly Assignment.Models.TimeTableContext _context;
+        private readonly IMapper _mapper;
 
-        public EditModel(Assignment.Models.TimeTableContext context)
+        public EditModel(Assignment.Models.TimeTableContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [BindProperty]
-        public Teacher Teacher { get; set; } = default!;
+        public TeacherEditModel EntityEditModel { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -29,25 +33,25 @@ namespace Assignment.Pages.Teachers
                 return NotFound();
             }
 
-            var teacher =  await _context.Teachers.FirstOrDefaultAsync(m => m.Id == id);
-            if (teacher == null)
+            var teacherModel = await _context.Teachers.FirstOrDefaultAsync(m => m.Id == id);
+            ViewData["model"] = teacherModel;
+            if (teacherModel == null)
             {
                 return NotFound();
             }
-            Teacher = teacher;
+            EntityEditModel = _mapper.Map<TeacherEditModel>(teacherModel);
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+            var teacherModel = _mapper.Map<Teacher>(EntityEditModel);
 
-            _context.Attach(Teacher).State = EntityState.Modified;
+            _context.Attach(teacherModel).State = EntityState.Modified;
 
             try
             {
@@ -55,7 +59,7 @@ namespace Assignment.Pages.Teachers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TeacherExists(Teacher.Id))
+                if (!TeacherExists(EntityEditModel.Id))
                 {
                     return NotFound();
                 }
