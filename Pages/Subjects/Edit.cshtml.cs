@@ -24,7 +24,7 @@ namespace Assignment.Pages.Subjects
         }
 
         [BindProperty]
-        public SubjectEditModel SubjectEditModel { get; set; }
+        public SubjectEditModel EntityEditModel { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -39,7 +39,7 @@ namespace Assignment.Pages.Subjects
             {
                 return NotFound();
             }
-            SubjectEditModel = _mapper.Map<SubjectEditModel>(subject);
+            EntityEditModel = _mapper.Map<SubjectEditModel>(subject);
             return Page();
         }
 
@@ -49,7 +49,7 @@ namespace Assignment.Pages.Subjects
             {
                 return Page();
             }
-            var subject = _mapper.Map<Subject>(SubjectEditModel);
+            var subject = _mapper.Map<Subject>(EntityEditModel);
 
             _context.Attach(subject).State = EntityState.Modified;
 
@@ -59,7 +59,7 @@ namespace Assignment.Pages.Subjects
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SubjectExists(SubjectEditModel.Id))
+                if (!SubjectExists(EntityEditModel.Id))
                 {
                     return NotFound();
                 }

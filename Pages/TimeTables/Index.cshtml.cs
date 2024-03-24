@@ -218,7 +218,7 @@ namespace Assignment.Pages.TimeTable
                                             .FirstOrDefault();
                 if (timetable != null)
                 {
-                    return (true, $" 1 Class have only 1 Subject {timeTable.SubjectCode} conflict with {timetable}");
+                    return (true, $" 1 Class have only 1 EditModel {timeTable.SubjectCode} conflict with {timetable}");
                 }
             }
             catch (Exception ex)

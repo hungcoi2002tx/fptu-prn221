@@ -131,7 +131,7 @@ namespace Assignment.Ultils
                                             .FirstOrDefault();
                 if (timetable != null)
                 {
-                    return (true, $" 1 Class have only 1 Subject {timeTable.SubjectCode} conflict with {timetable}");
+                    return (true, $" 1 Class have only 1 EditModel {timeTable.SubjectCode} conflict with {timetable}");
                 }
             }
             catch (Exception ex)
@@ -232,7 +232,7 @@ namespace Assignment.Ultils
                                            .FirstOrDefault();
                 if (timetable != null)
                 {
-                    return $" 1 Class have only 1 Subject {timetable.SubjectCode} conflict with {timetable}";
+                    return $" 1 Class have only 1 EditModel {timetable.SubjectCode} conflict with {timetable}";
                 }
             }
             catch (Exception ex)

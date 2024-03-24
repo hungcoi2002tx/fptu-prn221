@@ -52,7 +52,8 @@ namespace Assignment.Pages.Subjects
             if (subject != null)
             {
                 Subject = subject;
-                _context.Subjects.Remove(Subject);
+                Subject.Status = !Subject.Status;
+                _context.Subjects.Update(Subject);
                 await _context.SaveChangesAsync();
             }
 
