@@ -74,3 +74,11 @@ CREATE TABLE Timetables (
     FOREIGN KEY (RoomCode) REFERENCES Rooms(Code),
     FOREIGN KEY (SlotCode) REFERENCES Slots(Code)
 );
+
+GO
+ALTER TABLE Teachers
+ADD Status bit
+
+GO
+ALTER TABLE Classes
+ADD Status bit

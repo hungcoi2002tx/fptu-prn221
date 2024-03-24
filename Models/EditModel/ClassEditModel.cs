@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Humanizer;
+using System.ComponentModel.DataAnnotations;
 
 namespace Assignment.Models.EditModel
 {
@@ -16,6 +17,8 @@ namespace Assignment.Models.EditModel
         [StringLength(20, MinimumLength = 3, ErrorMessage = "Chiều dài không chính xác")]
         [Display(Name = "Code lớp học")]
         public string Code { get; set; }
+
+        public bool Status { get; set; } = true;
 
         public DateTime CreateTime { get; set; }
     }

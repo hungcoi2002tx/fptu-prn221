@@ -1,0 +1,131 @@
+﻿@page
+@model Assignment.Pages.TimeTables.AutomationCreateModel
+@{
+}
+<h4>Create new schedule</h4>
+<hr />
+<div class="row">
+    <div>
+        <form method="post" id="myForm" onsubmit="return validateForm()">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Môn học</label>
+                <select name="subjectCode">
+                    @foreach (var item in Model.Subjects)
+                    {
+                        <option value="@item.Code">@item.Code</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group" style="display:flex">
+                <div style="flex-direction: row;">
+                    <label class="control-label">Chọn lớp</label>    
+                    <br />
+                    <input type="checkbox" name="classAll" id="selectAll" min="1" style="width: 50px;"/>
+                    <span>Tất cả class</span>
+                    @foreach (var item in Model.Classes)
+                    {
+                        <br></br>
+                        <input type="checkbox" name="classIds" value="@item.Code" min="1" style="width: 50px;"/>
+                        <span>@item.Name (@item.Code)</span>
+                    }
+                </div>
+                <div style="flex-direction: row; margin-left:300px">
+                    <label class="control-label">Chọn Giáo viên</label>               
+                    @foreach (var item in Model.Teachers)
+                    {
+                        <br></br>
+                        <input type="checkbox" name="teacherIds" value="@item.Code" min="1" style="width: 50px;"/>
+                        <span>@item.Name (@item.Code)</span>                       
+                        <input type="number" name="numberOfSlot" min="0" max="@(10-item.Timetables.Count())" value="0" style="width: 50px;" disabled/>
+                        <span style="color:red">(@item.Timetables.Count()/10)</span>
+                    }
+                </div>
+            </div
+            
+            <div class="form-group">
+                 <input type="submit" value="Tạo" width="30px" id="automaticSubmit"/>
+            </div>
+
+        </form>
+         <div id="errorContainer" class="text-danger" style="display: none;"></div>
+    </div>
+</div>
+
+<div>
+    @if(Model.Errors?.Any() == true)
+    {
+        @foreach (var item in Model.Errors)
+        {
+             <p class="text-danger">@item</p>
+        }       
+    }
+     @if(Model.Success?.Any() == true)
+    {
+        @foreach (var item in Model.Success)
+        {
+             <p class="text-info">@item</p>
+        }       
+    }
+</div>
+
+                        
+<script>
+    function validateForm() {
+    var classIdsCheckboxes = document.getElementsByName("classIds");
+    var numberOfSlotInputs = document.getElementsByName("numberOfSlot");
+
+    var classIdsChecked = 0;
+    for (var i = 0; i < classIdsCheckboxes.length; i++) {
+      if (classIdsCheckboxes[i].checked) {
+        classIdsChecked++;
+      }
+    }
+
+    var numberOfSlotsSum = 0;
+    for (var i = 0; i < numberOfSlotInputs.length; i++) {
+      numberOfSlotsSum += parseInt(numberOfSlotInputs[i].value);
+    }
+
+    if (classIdsChecked !== numberOfSlotsSum) {
+      var errorContainer = document.getElementById("errorContainer");
+      errorContainer.innerHTML = "Sai trường nhập vào (tổng số slot của giáo viên phải bằng tổng số class được chọn) chi tiết:" + classIdsChecked + " khác với " + numberOfSlotsSum;
+      errorContainer.style.display = "block";
+      return false;
+    }
+    if(classIdsChecked == 0){
+      var errorContainer = document.getElementById("errorContainer");
+      errorContainer.innerHTML = "Chọn gì đi chứ";
+      errorContainer.style.display = "block";
+      return false;
+    }
+
+    return true;
+  }
+
+
+    var selectAllCheckbox = document.getElementById("selectAll");
+    var classCheckboxes = document.querySelectorAll('input[name="classIds"]');
+    selectAllCheckbox.addEventListener("click", function() {
+      for (var i = 0; i < classCheckboxes.length; i++) {
+        classCheckboxes[i].checked = selectAllCheckbox.checked;
+      }
+    });
+    for (var i = 0; i < classCheckboxes.length; i++) {
+      classCheckboxes[i].addEventListener("click", function() {
+        selectAllCheckbox.checked = document.querySelectorAll('input[name="classIds"]:checked').length === classCheckboxes.length;
+      });
+    }
+
+    var teacherCheckboxes = document.querySelectorAll('input[name="teacherIds"]');
+
+    for (var i = 0; i < teacherCheckboxes.length; i++) {
+      teacherCheckboxes[i].addEventListener("click", function() {
+        var slotInput = this.nextElementSibling.nextElementSibling;
+        slotInput.disabled = !this.checked;
+        if (!this.checked) {
+          slotInput.value = 0;
+        }
+      });
+    }
+</script>

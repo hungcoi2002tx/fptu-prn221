@@ -1,6 +1,7 @@
 ﻿using Assignment.Models;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Packaging.Licenses;
+using System.Xml;
 using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Assignment.Ultils
@@ -80,7 +81,7 @@ namespace Assignment.Ultils
             }
         }
 
-        private (Boolean, String) CheckValidTeacherSlot(Timetable timeTable)
+        public (Boolean, String) CheckValidTeacherSlot(Timetable timeTable)
         {
             (Boolean, String) result = (false, String.Empty);
             try
@@ -100,7 +101,7 @@ namespace Assignment.Ultils
             return result;
         }
         //1 class have only slot
-        private (Boolean, String) CheckValidClassSlot(Timetable timeTable)
+        public (Boolean, String) CheckValidClassSlot(Timetable timeTable)
         {
             (Boolean, String) result = (false, String.Empty);
             try
@@ -120,7 +121,7 @@ namespace Assignment.Ultils
             return result;
         }
         //1 class have only subjectcode
-        private (Boolean, String) CheckValidClassSubject(Timetable timeTable)
+        public (Boolean, String) CheckValidClassSubject(Timetable timeTable)
         {
             (Boolean, String) result = (false, String.Empty);
             try
@@ -141,7 +142,7 @@ namespace Assignment.Ultils
         }
 
         //1 room 1 slot
-        private (Boolean, String) CheckValidRoomSlot(Timetable timeTable)
+        public (Boolean, String) CheckValidRoomSlot(Timetable timeTable)
         {
             (Boolean, String) result = (false, String.Empty);
             try
@@ -162,7 +163,7 @@ namespace Assignment.Ultils
         }
 
         //compare value with Db
-        private (Boolean, String) CheckValidData(Timetable timeTable)
+        public (Boolean, String) CheckValidData(Timetable timeTable)
         {
             (Boolean, String) result = (false, String.Empty);
             try
@@ -199,5 +200,101 @@ namespace Assignment.Ultils
             }
             return result;
         }
+
+        public async Task<Timetable> GetTimeTableAsync(string teacherCode, string subjectCode, string classCode)
+        {
+            Timetable timeTable = new Timetable()
+            {
+                TeacherCode = teacherCode,
+                SubjectCode = subjectCode,
+                ClassCode = classCode
+            };
+            try
+            {
+                if(!CheckValidClassSubject(timeTable).Item1)
+                {
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return null;
+        }
+
+        public async Task<string> CheckValidClassSubjectAsync(string ClassCode, string SubjectCode)
+        {           
+            try
+            {
+                var timetable = _tableContext.Timetables.Where(x => x.ClassCode == ClassCode)
+                                           .Where(x => x.SubjectCode == SubjectCode)
+                                           .FirstOrDefault();
+                if (timetable != null)
+                {
+                    return $" 1 Class have only 1 Subject {timetable.SubjectCode} conflict with {timetable}";
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Validate - CheckValidClassSubject - {ex.Message}");
+            }
+            return null;
+        }
+
+        public async Task<Timetable> AddAutomaticAsync(string subjectCode, string classCode, string teacherCode)
+        {
+            try
+            {
+                var timetables = await _tableContext.Timetables.ToListAsync();
+                var slots = await _tableContext.Slots.ToListAsync();
+                var rooms = await _tableContext.Rooms.ToListAsync();
+                foreach (var item in rooms)
+                {
+                    foreach (var item1 in slots)
+                    {
+                        var timeTable = new Timetable()
+                        {
+                            Id = Guid.NewGuid().ToString("N"),
+                            ClassCode = classCode,
+                            TeacherCode = teacherCode,
+                            SubjectCode = subjectCode,
+                            SlotCode = item1.Code,
+                            RoomCode = item.Code
+                        };
+                        var check = await ValidationTimeTableAsync(timeTable);
+                        if(check == string.Empty || check == null)
+                        {
+                            return timeTable;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Validate - AddAutomaticAsync - {ex.Message}");
+            }
+            return null;
+        }
+
+        //public async Task<List<string>> CheckAutomationCreateAsync(string v1, int v2, List<string> list)
+        //{
+        //    List<string> result = new List<string>();
+        //    try
+        //    {
+        //        var timetable = TimeTables.Where(x => x.ClassCode == timeTable.ClassCode)
+        //                                    .Where(x => x.SlotCode == timeTable.SlotCode)
+        //                                    .FirstOrDefault();
+        //        if (timetable != null)
+        //        {
+        //            return (true, $" 1 Class have only 1 slot code {timeTable.SlotCode} conflict with {timetable}");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine($"Error: {ex.Message}");
+        //    }
+        //    return result;
+        //}
     }
 }

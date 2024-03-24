@@ -28,7 +28,7 @@ namespace Assignment.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-               
+                optionsBuilder.UseSqlServer("server=DESKTOP-VM67PNO\\NGUYENMINHHUNG;database=TimeTable;user=sa;password=123; TrustServerCertificate = true");
             }
         }
 
@@ -122,7 +122,9 @@ namespace Assignment.Models
 
             modelBuilder.Entity<Timetable>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.Property(e => e.Id)
+                    .HasMaxLength(32)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ClassCode)
                     .HasMaxLength(32)
@@ -150,31 +152,31 @@ namespace Assignment.Models
                     .WithMany(p => p.Timetables)
                     .HasPrincipalKey(p => p.Code)
                     .HasForeignKey(d => d.ClassCode)
-                    .HasConstraintName("FK__Timetable__Class__47DBAE45");
+                    .HasConstraintName("FK__Timetable__Class__5CD6CB2B");
 
                 entity.HasOne(d => d.RoomCodeNavigation)
                     .WithMany(p => p.Timetables)
                     .HasPrincipalKey(p => p.Code)
                     .HasForeignKey(d => d.RoomCode)
-                    .HasConstraintName("FK__Timetable__RoomC__4AB81AF0");
+                    .HasConstraintName("FK__Timetable__RoomC__5FB337D6");
 
                 entity.HasOne(d => d.SlotCodeNavigation)
                     .WithMany(p => p.Timetables)
                     .HasPrincipalKey(p => p.Code)
                     .HasForeignKey(d => d.SlotCode)
-                    .HasConstraintName("FK__Timetable__SlotC__4BAC3F29");
+                    .HasConstraintName("FK__Timetable__SlotC__60A75C0F");
 
                 entity.HasOne(d => d.SubjectCodeNavigation)
                     .WithMany(p => p.Timetables)
                     .HasPrincipalKey(p => p.Code)
                     .HasForeignKey(d => d.SubjectCode)
-                    .HasConstraintName("FK__Timetable__Subje__49C3F6B7");
+                    .HasConstraintName("FK__Timetable__Subje__5EBF139D");
 
                 entity.HasOne(d => d.TeacherCodeNavigation)
                     .WithMany(p => p.Timetables)
                     .HasPrincipalKey(p => p.Code)
                     .HasForeignKey(d => d.TeacherCode)
-                    .HasConstraintName("FK__Timetable__Teach__48CFD27E");
+                    .HasConstraintName("FK__Timetable__Teach__5DCAEF64");
             });
 
             OnModelCreatingPartial(modelBuilder);

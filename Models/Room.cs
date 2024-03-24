@@ -13,6 +13,7 @@ namespace Assignment.Models
         public string Id { get; set; } = null!;
         public string Code { get; set; } = null!;
         public DateTime? CreateTime { get; set; }
+        public bool? Status { get; set; }
 
         public virtual ICollection<Timetable> Timetables { get; set; }
     }

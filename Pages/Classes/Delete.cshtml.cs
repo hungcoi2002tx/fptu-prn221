@@ -47,7 +47,8 @@ namespace Assignment.Pages.Classes
             if (classModel != null)
             {
                 Class = classModel;
-                _context.Classes.Remove(Class);
+                Class.Status = !Class.Status;
+                _context.Classes.Update(Class);
                 await _context.SaveChangesAsync();
             }
 
