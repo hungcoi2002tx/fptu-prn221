@@ -3,12 +3,10 @@ using System.Xml.Linq;
 
 namespace Assignment.Models.ViewModel
 {
-    public class SubjectViewModel
+    public class RoomViewModel
     {
         public string Id { get; set; }
-        [Display(Name = "Tên lớp học")]
-        public string Name { get; set; }
-        [Display(Name = "Code lớp học")]
+        [Display(Name = "Code phòng học")]
         public string Code { get; set; }
         [Display(Name = "Ngày tạo")]
         public DateTime CreateTime { get; set; }

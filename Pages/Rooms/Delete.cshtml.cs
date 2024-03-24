@@ -52,10 +52,10 @@ namespace Assignment.Pages.Rooms
             if (room != null)
             {
                 Room = room;
-                _context.Rooms.Remove(Room);
+                Room.Status = !Room.Status;
+                _context.Rooms.Update(Room);
                 await _context.SaveChangesAsync();
             }
-
             return RedirectToPage("./Index");
         }
     }

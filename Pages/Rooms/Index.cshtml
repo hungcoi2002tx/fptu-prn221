@@ -8,22 +8,28 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Room[0].Code)
+                @Html.DisplayNameFor(model => model.ViewModels[0].Code)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Room[0].CreateTime)
+                @Html.DisplayNameFor(model => model.ViewModels[0].StatusVm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ViewModels[0].CreateTime)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Room) {
+@foreach (var item in Model.ViewModels) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Code)
+                @item.Code
             </td>
             <td>
-                @item?.CreateTime.Value.ToString("dd/MM/yyyy")
+                @item.StatusVm
+            </td>
+            <td>
+                @item.CreateTime.ToString("dd/MM/yyyy")
             </td>
             <td>
                     <button class="edit-btn">
@@ -33,7 +39,9 @@
                         <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
                     </button>
                     <button class="delete-btn">
-                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-page="./Delete" asp-route-id="@item.Id">
+                            @(item.Status == true ? "DeActive" : "Active")
+                        </a>
                     </button>                     
             </td>
         </tr>

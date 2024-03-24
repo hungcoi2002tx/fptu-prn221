@@ -7,20 +7,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Assignment.Models;
+using AutoMapper;
+using Assignment.Models.EditModel;
 
 namespace Assignment.Pages.Rooms
 {
     public class EditModel : PageModel
     {
         private readonly Assignment.Models.TimeTableContext _context;
+        private readonly IMapper _mapper;
 
-        public EditModel(Assignment.Models.TimeTableContext context)
+        public EditModel(Assignment.Models.TimeTableContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [BindProperty]
-        public Room Room { get; set; } = default!;
+        public RoomEditModel EntityEditModel { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -29,25 +33,25 @@ namespace Assignment.Pages.Rooms
                 return NotFound();
             }
 
-            var room =  await _context.Rooms.FirstOrDefaultAsync(m => m.Id == id);
-            if (room == null)
+            var roomModel = await _context.Rooms.FirstOrDefaultAsync(m => m.Id == id);
+            ViewData["model"] = roomModel;
+            if (roomModel == null)
             {
                 return NotFound();
             }
-            Room = room;
+            EntityEditModel = _mapper.Map<RoomEditModel>(roomModel);
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+            var roomEditModel = _mapper.Map<Room>(EntityEditModel);
 
-            _context.Attach(Room).State = EntityState.Modified;
+            _context.Attach(roomEditModel).State = EntityState.Modified;
 
             try
             {
@@ -55,7 +59,7 @@ namespace Assignment.Pages.Rooms
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!RoomExists(Room.Id))
+                if (!RoomExists(EntityEditModel.Id))
                 {
                     return NotFound();
                 }
@@ -64,7 +68,6 @@ namespace Assignment.Pages.Rooms
                     throw;
                 }
             }
-
             return RedirectToPage("./Index");
         }
 

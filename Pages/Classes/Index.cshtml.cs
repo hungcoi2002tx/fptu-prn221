@@ -31,7 +31,7 @@ namespace Assignment.Pages.Classes
             }
             catch (Exception ex)
             {
-                Console.Write("Error in OnGetAsync() - Index - Rooms :" + ex.ToString());
+                Console.Write("Error in OnGetAsync() - Index - Ckasses :" + ex.ToString());
             }
         }
     }

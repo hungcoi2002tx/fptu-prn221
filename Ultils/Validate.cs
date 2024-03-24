@@ -152,7 +152,7 @@ namespace Assignment.Ultils
                                             .FirstOrDefault();
                 if (timetable != null)
                 {
-                    return (true, $" 1 Room have only 1 slot conflict with {timetable}");
+                    return (true, $" 1 EditModel have only 1 slot conflict with {timetable}");
                 }
             }
             catch (Exception ex)
