@@ -68,7 +68,7 @@ namespace Assignment.Pages.TimeTables
         {
             try
             {
-                Classes = await _db.Classes.ToListAsync();
+                Classes = await _db.Classes.Where(x => x.Status == true).ToListAsync();
 
             }
             catch (Exception ex)

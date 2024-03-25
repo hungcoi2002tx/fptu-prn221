@@ -31,16 +31,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Teachers/Index">Teacher</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/TimeTables/Index">TimeTable</a>
-                        </li>
                         <li class="nav-item">                            
                             <div class="dropdown">
                               <a class="nav-link text-dark"> Create Time Table</a>
                               <div class="dropdown-content">
                                 <a asp-area="" asp-page="/TimeTables/AutomationCreate">Automatic Create</a>
                                 <a asp-area="" asp-page="/TimeTables/Create">Create By Hand</a>
-                                <a asp-area="" asp-page="/TimeTables/Index">Input File</a>
+                                <a asp-area="" asp-page="/TimeTables/CreateByFile">Input File</a>
                               </div>
                             </div>
                         </li>
@@ -50,7 +47,7 @@
                               <div class="dropdown-content">
                                 <a asp-area="" asp-page="/TimeTables/ViewByClass">View By Class</a>
                                 <a asp-area="" asp-page="/TimeTables/ViewBySlot">View By Slot</a>
-                                <a asp-area="" asp-page="/TimeTables/Create">Link 3</a>
+                                <a asp-area="" asp-page="/TimeTables/ViewOriginal">View Original</a>
                               </div>
                             </div>
                         </li>

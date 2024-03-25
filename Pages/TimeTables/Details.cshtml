@@ -2,3 +2,74 @@
 @model Assignment.Pages.TimeTables.DetailsModel
 @{
 }
+<h4>Update new schedule</h4>
+<hr />
+<div class="row">
+    <div>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EditModel.TeacherCode" class="control-label"></label>
+                <select asp-for="EditModel.TeacherCode">
+                    @foreach (var item in Model.Teachers)
+                    {
+                        <option value="@item.Code">@item.Code</option>
+                    }
+                </select>
+                <span asp-validation-for="EditModel.TeacherCode" class="text-danger"></span>
+            </div
+            <div class="form-group">
+                <label asp-for="EditModel.SubjectCode" class="control-label"></label>
+                <select asp-for="EditModel.SubjectCode">
+                    @foreach (var item in Model.Subjects)
+                    {
+                        <option value="@item.Code">@item.Code</option>
+                    }
+                </select>
+                <span asp-validation-for="EditModel.SubjectCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EditModel.ClassCode" class="control-label"></label>
+                <select asp-for="EditModel.ClassCode">
+                    @foreach (var item in Model.Classes)
+                    {
+                        <option value="@item.Code">@item.Code</option>
+                    }
+                </select>
+                <span asp-validation-for="EditModel.TeacherCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EditModel.RoomCode" class="control-label"></label>
+                <select asp-for="EditModel.RoomCode">
+                    @foreach (var item in Model.Rooms)
+                    {
+                        <option value="@item.Code">@item.Code</option>
+                    }
+                </select>
+                <span asp-validation-for="EditModel.RoomCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EditModel.SlotCode" class="control-label"></label>
+                <select asp-for="EditModel.SlotCode">
+                    @foreach (var item in Model.Slots)
+                    {
+                        <option value="@item.Code">@item.Code</option>
+                    }
+                </select>
+                <span asp-validation-for="EditModel.SlotCode" class="text-danger"></span>
+            </div>
+            <input asp-for="EditModel.Id" hidden="true"/>
+            <input asp-for="EditModel.CreateTime" hidden="true"/>
+            <div class="form-group">
+                 <input type="submit" value="Tạo" width="30px"/>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <button class="back-list-btn">
+        <a asp-page="Index">Back to List</a>
+    </button>
+</div>

@@ -26,7 +26,15 @@ namespace Assignment.Ultils
 
         public async Task<String> ValidationTimeTableAsync(Timetable timeTable)
         {
-            await GetDataAsync();
+            if( timeTable.Id != null)
+            {
+                await GetDataAsync(timeTable.Id);
+            }
+            else
+            {
+                await GetDataAsync();
+            }
+            
             Boolean isError = false;
             String error = String.Empty;
 
@@ -66,6 +74,22 @@ namespace Assignment.Ultils
             return error;
         }
 
+        private async Task GetDataAsync(string id)
+        {
+            try
+            {
+                Classes = await _tableContext.Classes.Where(x => x.Status == true).ToListAsync();
+                Teachers = await _tableContext.Teachers.Where(x => x.Status == true).ToListAsync();
+                Rooms = await _tableContext.Rooms.Where(x => x.Status == true).ToListAsync();
+                Slots = await _tableContext.Slots.ToListAsync();
+                TimeTables = await _tableContext.Timetables.Where(x => x.Id != id).ToListAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(TAG + "- GetDataAsync - " + e.Message);
+            }
+        }
+
         private async Task GetDataAsync()
         {
             try
@@ -91,7 +115,7 @@ namespace Assignment.Ultils
                                             .FirstOrDefault();
                 if (timetable != null)
                 {
-                    return (true, $" 1 EditModel have only 1 slot code {timeTable.SlotCode} conflict with {timetable}");
+                    return (true, $" 1 Teacher have only 1 slot code {timeTable.SlotCode} conflict with {timetable}");
                 }
             }
             catch (Exception ex)
@@ -131,7 +155,7 @@ namespace Assignment.Ultils
                                             .FirstOrDefault();
                 if (timetable != null)
                 {
-                    return (true, $" 1 Class have only 1 EditModel {timeTable.SubjectCode} conflict with {timetable}");
+                    return (true, $" 1 Class have only 1 Subject {timeTable.SubjectCode} conflict with {timetable}");
                 }
             }
             catch (Exception ex)
@@ -152,7 +176,7 @@ namespace Assignment.Ultils
                                             .FirstOrDefault();
                 if (timetable != null)
                 {
-                    return (true, $" 1 EditModel have only 1 slot conflict with {timetable}");
+                    return (true, $" 1 Room have only 1 slot conflict with {timetable}");
                 }
             }
             catch (Exception ex)
@@ -232,7 +256,7 @@ namespace Assignment.Ultils
                                            .FirstOrDefault();
                 if (timetable != null)
                 {
-                    return $" 1 Class have only 1 EditModel {timetable.SubjectCode} conflict with {timetable}";
+                    return $" 1 Class have only 1 Subject {timetable.SubjectCode} conflict with {timetable}";
                 }
             }
             catch (Exception ex)

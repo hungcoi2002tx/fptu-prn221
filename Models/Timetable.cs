@@ -18,5 +18,10 @@ namespace Assignment.Models
         public virtual Slot? SlotCodeNavigation { get; set; }
         public virtual Subject? SubjectCodeNavigation { get; set; }
         public virtual Teacher? TeacherCodeNavigation { get; set; }
+
+        public override string? ToString()
+        {
+            return $"{ClassCode} - {TeacherCode} - {SubjectCode} - {RoomCode} - {SlotCode} - {CreateTime}";
+        }
     }
 }

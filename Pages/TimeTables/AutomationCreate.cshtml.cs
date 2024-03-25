@@ -118,6 +118,7 @@ namespace Assignment.Pages.TimeTables
                 var timeTable = await _valid.AddAutomaticAsync(subjectCode, classCode, teacherCode);
                 if(timeTable != null)
                 {
+                    timeTable.CreateTime = DateTime.Now;
                     _db.Timetables.AddAsync(timeTable);
                     _db.SaveChanges();
                     return $"Add thành công {timeTable}";

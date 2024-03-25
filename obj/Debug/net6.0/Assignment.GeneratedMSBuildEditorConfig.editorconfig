@@ -120,24 +120,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGltZVRhYmxlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/TimeTables/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGltZVRhYmxlc1xEZXRhaWxzLmNzaHRtbA==
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/TimeTables/CreateByFile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGltZVRhYmxlc1xDcmVhdGVCeUZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/TimeTables/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGltZVRhYmxlc1xJbmRleC5jc2h0bWw=
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/TimeTables/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGltZVRhYmxlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/TimeTables/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGltZVRhYmxlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/TimeTables/ViewByClass.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGltZVRhYmxlc1xWaWV3QnlDbGFzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/TimeTables/ViewByRoom.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGltZVRhYmxlc1xWaWV3QnlSb29tLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/TimeTables/ViewBySlot.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGltZVRhYmxlc1xWaWV3QnlTbG90LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/TimeTables/ViewOriginal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGltZVRhYmxlc1xWaWV3T3JpZ2luYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/FPT Material/Chapter 7/PRN221/Project/Assignment/Pages/_ViewImports.cshtml]

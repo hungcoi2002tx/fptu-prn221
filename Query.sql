@@ -82,3 +82,13 @@ ADD Status bit
 GO
 ALTER TABLE Classes
 ADD Status bit
+
+GO
+ALTER TABLE Rooms
+ADD Status bit
+
+GO
+ALTER TABLE Subjects
+ADD Status bit
+
+GO

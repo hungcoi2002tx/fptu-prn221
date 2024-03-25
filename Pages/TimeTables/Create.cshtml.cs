@@ -53,11 +53,11 @@ namespace Assignment.Pages.TimeTables
         {
             try
             {
-                Classes = await _db.Classes.ToListAsync();
-                Rooms = await _db.Rooms.ToListAsync();
+                Classes = await _db.Classes.Where(x => x.Status == true).ToListAsync();
+                Rooms = await _db.Rooms.Where(x => x.Status == true).ToListAsync();
                 Slots = await _db.Slots.ToListAsync();
-                Subjects = await _db.Subjects.ToListAsync();
-                Teachers = await _db.Teachers.ToListAsync();
+                Subjects = await _db.Subjects.Where(x => x.Status == true).ToListAsync();
+                Teachers = await _db.Teachers.Where(x => x.Status == true).ToListAsync();
             }catch (Exception ex)
             {
                 _log.LogError($"GetBaseData - Create - Timetables - {ex.Message}");
@@ -86,7 +86,7 @@ namespace Assignment.Pages.TimeTables
             {
                 _log.LogError($"OnPostAsync - Create - Timetables - {ex.Message}");
             }
-            return RedirectToPage("./Index");
+            return RedirectToPage("./ViewOriginal");
         }
     }
 }

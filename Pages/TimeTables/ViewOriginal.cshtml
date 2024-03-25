@@ -1,0 +1,128 @@
+﻿@page
+@model Assignment.Pages.TimeTables.ViewOriginalModel
+<h1>View TimeTable Original</h1>
+<button class="add-btn">
+    <a asp-page="Create">Create New</a>
+</button>
+@*@if(Model.Datas?.Any() == true){*@
+<form method="get">
+    <h3>Lọc thời khóa biểu theo: </h3>
+    <div>
+        <label>Code lớp học</label>
+        <input asp-for="ClassSelected">
+    </div>
+    <div>
+        <label>Code môn học</label>
+        <select asp-for="SubjectSelected">
+            <option value="All">All</option>
+            @foreach (var item in Model.Subjects)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label>Code giáo viên</label>
+        <select asp-for="TeacherSelected">
+            <option value="All">All</option>
+            @foreach (var item in Model.Teachers)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label>Code phòng học</label>
+        <select asp-for="RoomSelected">
+            <option value="All">All</option>
+            @foreach (var item in Model.Rooms)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label>Code slot học</label>
+        <select asp-for="SlotSelected">
+            <option value="All">All</option>
+            @foreach (var item in Model.Slots)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+    </div>
+    @*<div>
+    <label>Sắp xếp theo tiền</label>
+    <input asp-for="SortType" type="radio" name="SortType" value="DESC" />
+    <span>Giảm dần</span>
+    <input asp-for="SortType" type="radio" name="SortType" value="ASC" />
+    <span>Tăng dần</span>
+    </div>*@
+    <input type="submit" value="Tìm kiếm" />
+</form>
+<table>
+    <tr>
+        <th>Class</th>
+        <th>Subject</th>
+        <th>Teacher</th>
+        <th>Room</th>
+        <th>Slot</th>
+        <th>CreateDate</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Datas)
+    {
+        <tr>
+            <td>
+                @item.ClassCode
+            </td>
+            <td>
+                @item.SubjectCode
+            </td>
+            <td>
+                @item.TeacherCode
+            </td>
+            <td>
+                @item.RoomCode
+            </td>
+            <td>
+                @item.SlotCode
+            </td>
+            <td>
+                @item.CreateTime?.ToString("dd/MM/yyyy")
+            </td>
+            <td>               
+                <form method="post">
+                    <input name="id" value="@item.Id" hidden="true" />
+                    <button class="detail-btn"><a asp-page="./Details" asp-route-id="@item.Id">Details</a></button>
+                    <button class="delete-btn" type="submit">Delete</button>
+                </form>
+
+            </td>
+        </tr>
+    }
+</table>
+@*}else{
+    <h1>Khong co du lieu time table</h1>
+}*@
+
+@if (Model.TotalPage > 1)
+{
+    <form method="get">
+        <input asp-for="ClassSelected" hidden="true" />
+        <input asp-for="SubjectSelected" hidden="true" />
+        <input asp-for="RoomSelected" hidden="true" />
+        <input asp-for="SlotSelected" hidden="true" />
+        <input asp-for="TeacherSelected" hidden="true" />
+        @for (int i = 1; i <= Model.TotalPage; i++)
+            @if (i == Model.PageIndex)
+            {
+                <button type="submit" name="pageindex" value="@i" style=" color:red">@i</button>
+            }
+            else
+            {
+                <button type="submit" name="pageindex" value="@i">@i</button>
+            }
+
+    </form>
+}

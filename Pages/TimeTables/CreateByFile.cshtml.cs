@@ -7,13 +7,13 @@ using Microsoft.JSInterop;
 
 namespace Assignment.Pages.TimeTable
 {
-    public class IndexModel : PageModel
+    public class CreateByFileModel : PageModel
     {
         private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly Assignment.Models.TimeTableContext _context;
         private readonly Logger _log;
 
-        public IndexModel(IWebHostEnvironment hostingEnvironment, Assignment.Models.TimeTableContext context, Logger log)
+        public CreateByFileModel(IWebHostEnvironment hostingEnvironment, Assignment.Models.TimeTableContext context, Logger log)
         {
             _hostingEnvironment = hostingEnvironment;
             _context = context;
@@ -114,10 +114,10 @@ namespace Assignment.Pages.TimeTable
         {
             try
             {
-                Classes =await _context.Classes.ToListAsync();
-                Subjects =await _context.Subjects.ToListAsync();
-                Rooms = await _context.Rooms.ToListAsync();
-                Teachers = await _context.Teachers.ToListAsync(); 
+                Classes =await _context.Classes.Where(x => x.Status == true).ToListAsync();
+                Subjects =await _context.Subjects.Where(x => x.Status == true).ToListAsync();
+                Rooms = await _context.Rooms.Where(x => x.Status == true).ToListAsync();
+                Teachers = await _context.Teachers.Where(x => x.Status == true).ToListAsync(); 
                 Slots = await _context.Slots.ToListAsync();
                 TimeTables = await _context.Timetables.ToListAsync();
             }
